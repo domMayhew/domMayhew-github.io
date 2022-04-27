@@ -181,10 +181,6 @@ header img.logo {
     .hamburger {
         display: inline-block;
     }
-
-    header {
-        background-color: yellow;
-    }
 }
 
 @media
@@ -564,6 +560,7 @@ form input[type="submit"] {
 .side-nav {
     grid-column: 1;
     background: linear-gradient(to bottom, #30460E, 30%, white);
+    min-width: 200px;
 }
 
 .side-nav p:not(p:first-child) {
