@@ -1,0 +1,672 @@
+/*
+    Set Up / Universal
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Sacramento&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh; /* Keeps footer at bottom of page */
+    padding-bottom: 7.5vh; /* Size of footer */
+}
+
+:root {
+    --primary-color-r: 14;
+    --primary-color-g: 30;
+    --primary-color-b: 46;
+    --primary-color: rgb(14,30,46);
+
+    --menu-title-size: 2rem;
+}
+
+.center-vertical {
+    /* Centers children vertically within this div's parent. */
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.center-horizontal, .center-horizontal-flex {
+    /* Centers content horizontally within this div's parent. */
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.center-horizontal-flex {
+    flex-flow: row wrap;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+    Header
+*/
+
+header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(grey 0, 20%, white);
+    border-bottom: 0.1rem solid var(--primary-color);
+    min-height: 7.5vh;
+}
+
+header.main-page {
+    border-bottom: none;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+}
+
+header a.logo {
+    width: 25%;
+    max-width: 300px;
+    min-width: 160px;
+    padding: 1rem;
+}
+
+header img.logo {
+    width: 100%;
+}
+
+.hamburger {
+    /* Only displayed for narrower screens. */
+    display: none;
+    margin-left: 1rem;
+}
+
+.menu {
+    /* Inherits flex traits from .center-vertical */
+    gap: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.menu-title {
+    padding: 2px;
+    font-size: var(--menu-title-size);
+    font-weight: normal;
+}
+
+.menu-divider {
+    height: var(--menu-title-size);
+    width: 2px;
+    background-color: black;
+}
+
+.menu-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    display: none;
+    z-index: 2; /* required to clear slide and arrow of slideshow */
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.menu-column {
+    margin: 0 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.menu-column > * {
+    padding: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.menu-column > *:first-child {
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.menu-column > *:not(p:first-child):hover {
+    text-decoration: underline;
+}
+
+.menu-content-hamburger {
+    background-color: white;
+    padding: 2rem;
+    z-index: 2; /* required to clear slide and arrow of slideshow */
+    border-right: 2px solid var(--primary-color);
+
+    position: fixed;
+    left: -100%;
+    top: 7.5vh;
+    width: 90%;
+    height: 92.5vh;
+    box-shadow: 10px 20px 10px 10px rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b),0.25);
+    transition: 0.6s ease-out;
+}
+
+.cart {
+    padding: 1rem 3rem;
+}
+
+.cart:hover {
+    color: green;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .menu-title {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .menu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: inline-block;
+    }
+}
+
+/*
+    Slide show
+*/
+
+.slideshow-container {
+    position: relative;
+    max-height: 55vh;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    display: block;
+    opacity: 0;
+    object-fit: contain;
+}
+
+[class|="arrow"] {
+    position: absolute;
+    font-size: 1.5em;
+    padding: .4em;
+    top: 50%;
+    margin-top: -1em;
+    background-color: rgba(256,256,256,0.3);
+    transition: 0.5s;
+    border-radius: 0 0.1em 0.1em 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+[class|="arrow"]:hover {
+    background-color: rgba(256,256,256,0.8);
+}
+
+.arrow-next {
+    right: 0;
+    border-radius: 0.1em 0 0 0.1em;
+}
+
+.dot-container {
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+.dot, .dot-selected {
+    width: 1rem;
+    height: 1rem;
+    margin: 1rem 0.5rem;
+    background-color: white;
+    opacity: 0.4;
+    border-radius: 100%;
+    transition: 0.25s;
+}
+
+.dot-selected {
+    opacity: 0.75;
+}
+
+.dot:hover, .dot-selected:hover {
+    opacity: 1;
+}
+
+/*
+    Content cards
+*/
+
+
+.card-carousel-title {
+    margin-top: 2rem;
+}
+
+.card-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 1470px;
+    width: 100%;
+    margin: 0 15%;
+}
+
+.card-container h1 {
+    text-align: center;
+}
+.track {
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    left: 0;
+    width: 100%;
+    transition: left 1s cubic-bezier(0.65, 0, 0.35, 1);    
+}
+
+.card {
+    --display-count: 4;
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden; /* Prevents the image from overflowing the rounded corners. */
+    aspect-ratio: 1 / 1;
+    width: calc(100% / var(--display-count) - 6%);
+    flex-shrink: 0;
+    transition: 0.3s;
+    margin: 1rem 3%;
+    display: inline-block;
+    box-shadow: 1px 2px 1px 1px rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b),0.25);
+    left: 0;
+    top: 0;
+}
+
+@media only screen and (max-width: 1315px) {
+    .card {
+        --display-count: 3;
+    }
+}
+
+@media only screen and (max-width: 914px) {
+    .card {
+        --display-count: 2;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .card {
+        --display-count: 1;
+    }
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    z-index: -1;
+    position: absolute;
+}
+
+.card cite {
+    position: absolute;
+    height: 10%;
+    bottom: 0;
+    background-color: rgba(256,256,256,0.4);
+}
+
+.card .title {
+    position: absolute;
+    text-align: center;
+    height: 25%;
+    width: 100%;
+    bottom: 20%;
+    background-color: rgba(256,256,256,0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    opacity: 1;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.card .description {
+    position: absolute;
+    bottom: 100%;
+    opacity: 1;
+    width: 100%;
+    padding: 1.5rem;
+    text-align: justify;
+    z-index: 1;
+    background-color: rgba(256,256,256,0.85);
+    transition: 0.3s ease-out;
+    font-size: 0.85rem;
+}
+
+.card:hover {
+    box-shadow: 1px 2px 4px 4px rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b),0.25);
+    left: -2px;
+    top: -2px;
+}
+
+.card:hover .description {
+    bottom: 20%;
+}
+
+.card:hover .title {
+    opacity: 0;
+}
+
+.card-carousel {
+    position: relative;
+}
+
+.card-carousel [class|="arrow"] {
+    background-color: rgba(0,0,0,0.0);
+    border-radius: 0.1em;
+}
+
+.card-carousel .arrow-prev {
+    left: 12.5%;
+    visibility: hidden;
+}
+
+.card-carousel .arrow-next {
+    right: 12.5%;
+}
+
+.card-carousel [class|="arrow"]:hover {
+    background-color: rgba(0,0,40,0.25);
+}
+
+/*
+    Forum Cards
+*/
+
+[class|="card-forum"] {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden; /* Prevents the image from overflowing the rounded corners. */
+    width: 94%;
+    aspect-ratio: 5 / 1;
+    transition: 0.5s;
+    margin: 1rem 3%;
+    display: inline-block;
+    box-shadow: 1px 2px 3px 3px rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b),0.25);
+}
+
+.card-forum {
+    overflow-y: auto;
+    display: none;
+}
+
+.card-forum img {
+    width: 30%;
+    max-height: calc(100% - 2rem);
+    object-fit: contain;
+    float: right;
+    margin: 1rem;
+}
+
+.card-forum-category {
+    aspect-ratio: auto;
+}
+
+.card-forum-category > .title {
+    display: inline-block;
+    margin: 1rem;
+}
+
+.card-forum-category > .expand-triangle {
+    font-size: 2rem;
+}
+
+.card-forum-category > .expand-triangle:hover {
+    cursor: pointer;
+}
+
+.card-forum .title {
+    padding: 2rem 0 0 1rem;
+}
+
+.card-forum .description {
+    padding: 1rem;
+    text-indent: 2%;
+}
+
+
+/*
+    Form
+*/
+
+form {
+    margin: 3rem 15%;
+    max-width: calc(1470px - 1470px * 0.06); /* Matches the outer edges of the outer cards in the carousels. */
+    width: calc(70% - 70% * 0.06);
+    border: 2px solid var(--primary-color);
+    border-radius: 1rem;
+    padding: 0 2rem;
+}
+
+form h1 {
+    text-align: center;
+    font-size: 1.75rem;
+}
+
+form * {
+    margin: 1rem 1rem;
+}
+
+form label {
+    font-size: 1.25rem;
+}
+
+form select {
+    width: 15rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    height: calc(1rem + 1rem + 4px); /* Matches small text areas */
+}
+
+form textarea {
+    border: 1px solid var(--primary-color);
+    border-radius: 2px;
+    font-family: sans-serif;
+    padding: 0.5rem;
+}
+
+form textarea.small {
+    line-height: 1;
+    width: 15rem;
+    max-lines: 1;
+    height: calc(1rem + 1rem + 4px); /* Font-size * line-height + padding * 2 + border * 2 */
+    font-size: 1rem;
+    resize: none;
+}
+
+form textarea#message {
+    width: 100%;
+    height: 20vh;
+    border-radius: 0.5rem;
+    resize: none;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+}
+
+form input[type="submit"] {
+    width: 10rem;
+    height: 4rem;
+    background-color: rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b), 0.4);
+    border: 1px solid rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b), 0.6);
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px 1px;
+}
+
+/*
+    Side nav and grid layout
+*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 15% auto;
+}
+
+.grid-container#collaborate {
+    grid-template-columns: 15% auto 15%;
+}
+
+.nav-category {
+    margin: 2rem;
+}
+
+.nav-category p:first-child {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-category p:first-child:hover {
+    text-decoration: underline;
+}
+
+.nav-category.learn p:first-child:hover {
+    text-decoration: none;
+    cursor: default;
+}
+
+.nav-category.learn p:not(p:first-child) {
+    cursor: pointer;
+}
+
+.nav-category.learn p:not(p:first-child):hover {
+    text-decoration: underline;
+}
+
+.side-nav {
+    grid-column: 1;
+    background: linear-gradient(to bottom, #30460E, 30%, white);
+}
+
+.side-nav p:not(p:first-child) {
+    padding: 0.25rem 0.5rem;
+}
+
+.content {
+    grid-column: 2;
+    margin: 2rem;
+}
+
+#collaborate .side-bar:first-of-type {
+    grid-column: 1;
+    background: linear-gradient(to bottom, #30460E, 30%, white);
+}
+
+#collaborate .side-bar:not(.side-bar:first-of-type) {
+    grid-column: 3;
+    background: linear-gradient(to bottom, #30460E, 30%, white);
+}
+
+.content > p {
+    text-indent: 4%;
+    text-align: justify;
+    margin: 1rem 3rem;
+    max-width: 1000px;
+}
+
+.content > p:first-child {
+    text-indent: 0;
+}
+
+.content > p:first-child::first-letter {
+    font-size: 4rem;
+    float: left;
+    line-height: 1;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 3px;
+    margin: 0 0.3rem;
+}
+
+.content > p > img {
+    max-width: 40%;
+    max-height: 20vh;
+    object-fit: contain;
+    margin: 0.5rem 1.5rem;
+}
+
+.content > p > img.left {
+    clear: both;
+    float: left;
+    margin-left: 0;
+}
+
+.content > p > img.right {
+    clear: both;
+    float: right;
+    margin-right: 0;
+}
+
+.content > p > img.top {
+    margin-top: 0;
+}
+
+/*
+    Videos (Learn page)
+*/
+
+iframe.main {
+    height: 60vh;
+    aspect-ratio: 4 / 3;
+}
+
+
+/*
+    Footer
+*/
+
+footer {
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 7.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > * {
+    color: white;
+    padding: 0 1rem 0 1rem;
+    max-height: 100%;
+    font-size: 1.5rem;
+}
+
+footer img {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+}
+
+footer cite {
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 1100px) {
+    footer cite {
+        display: none;
+    }
+}
