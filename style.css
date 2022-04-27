@@ -173,7 +173,7 @@ header img.logo {
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px), only screen and (max-device-width: 1200px) {
     .menu {
         display: none;
     }
@@ -181,7 +181,13 @@ header img.logo {
     .hamburger {
         display: inline-block;
     }
+
+    header {
+        background-color: yellow;
+    }
 }
+
+@media
 
 /*
     Slide show
