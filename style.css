@@ -628,7 +628,8 @@ form input[type="submit"] {
 */
 
 iframe.main {
-    height: 60vh;
+    max-height: 75vh;
+    width: 75%;
     aspect-ratio: 4 / 3;
 }
 
