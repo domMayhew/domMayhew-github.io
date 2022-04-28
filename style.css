@@ -178,7 +178,7 @@ header img.logo {
     }
 }
 
-@media only screen and (max-width: 700px), only screen and (max-device-width: 1200px) {
+@media only screen and (max-width: 700px) {
     .menu {
         display: none;
     }
@@ -422,7 +422,7 @@ header img.logo {
     box-shadow: 1px 2px 3px 3px rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b),0.25);
 }
 
-@media only screen and (max-width: 700px), only screen and (max-device-width: 1200px) {
+@media only screen and (max-width: 700px) {
     [class|="card-forum"] {
         aspect-ratio: 3 / 1;
     }
@@ -548,9 +548,9 @@ form input[type="submit"] {
     grid-template-columns: 15% auto 15%;
 }
 
-@media only screen and (max-width: 700px), only screen and (max-device-width: 1200px) {
+@media only screen and (max-width: 700px) {
     .grid-container {
-        grid-template-columns: 35% auto;
+        grid-template-columns: 25% auto;
     }
 
     .grid-container#collaborate {
