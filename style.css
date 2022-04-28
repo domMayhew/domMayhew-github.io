@@ -158,6 +158,11 @@ header img.logo {
     transition: 0.4s ease-out;
 }
 
+.menu-content-hamburger a {
+    font-size: 32px;
+    padding: 0.75rem;
+}
+
 .cart {
     padding: 1rem 3rem;
 }
@@ -182,12 +187,12 @@ header img.logo {
         display: inline-block;
     }
 
-    .html {
+    html {
         font-size: 20px;
     }
 
-    .menu-content-hamburger a {
-        font-size: 32px;
+    .hamburger, .cart {
+        font-size: 36px;
     }
 }
 
