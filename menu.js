@@ -88,23 +88,23 @@ function initializeMenus() {
     const sideMenu = document.createElement("div");
     sideMenu.className = "menu-content-hamburger";
     sideMenu.id = "menu-content-hamburger";
-    makeAndAppendH3("Learn", sideMenu, "learn.html");
-    makeAndAppendH3("Shop", sideMenu, "shop.html");
-    makeAndAppendH3("Collaborate", sideMenu, "collaborate.html");
+    makeAndAppendH5("Learn", sideMenu, "learn.html");
+    makeAndAppendH5("Shop", sideMenu, "shop.html");
+    makeAndAppendH5("Collaborate", sideMenu, "collaborate.html");
     document.getElementById("hamburger").onclick = toggleHamburgerMenu;
     header.appendChild(sideMenu);
 }
 
-function makeAndAppendH3(content, parent, href) {
-    const h3 = document.createElement("h3");
-    h3.innerHTML = content;
+function makeAndAppendH5(content, parent, href) {
+    const h5 = document.createElement("h5");
+    h5.innerHTML = content;
     if (href) {
         const anchor = document.createElement("a");
         anchor.href = href;
-        anchor.appendChild(h3);
+        anchor.appendChild(h5);
         parent.appendChild(anchor);
     } else {
-        parent.appendChild(h3);
+        parent.appendChild(h5);
     }
 }
 
@@ -134,7 +134,7 @@ let hamburgerMenuDisplayed = false;
 function toggleHamburgerMenu() {
     hamburgerMenuDisplayed = !hamburgerMenuDisplayed;
     const sideMenu = document.getElementById("menu-content-hamburger");
-    sideMenu.style.left = hamburgerMenuDisplayed ? "0" : "-60%";    
+    sideMenu.style.left = hamburgerMenuDisplayed ? "0" : "-80%";    
 }
 
 function setFooterTimeStamp() {
