@@ -181,6 +181,14 @@ header img.logo {
     .hamburger {
         display: inline-block;
     }
+
+    .html {
+        font-size: 20px;
+    }
+
+    .menu-content-hamburger a {
+        font-size: 32px;
+    }
 }
 
 /*
