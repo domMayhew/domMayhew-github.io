@@ -150,12 +150,12 @@ header img.logo {
     border-right: 2px solid var(--primary-color);
 
     position: fixed;
-    left: -100%;
+    left: -60%;
     top: 7.5vh;
-    width: 90%;
+    width: 60%;
     height: 92.5vh;
     box-shadow: 10px 20px 10px 10px rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b),0.25);
-    transition: 0.6s ease-out;
+    transition: 0.4s ease-out;
 }
 
 .cart {
@@ -417,6 +417,12 @@ header img.logo {
     box-shadow: 1px 2px 3px 3px rgba(var(--primary-color-r), var(--primary-color-g), var(--primary-color-b),0.25);
 }
 
+@media only screen and (max-width: 700px), only screen and (max-device-width: 1200px) {
+    [class|="card-forum"] {
+        aspect-ratio: 3 / 1;
+    }
+}
+
 .card-forum {
     overflow-y: auto;
     display: none;
@@ -535,6 +541,12 @@ form input[type="submit"] {
 
 .grid-container#collaborate {
     grid-template-columns: 15% auto 15%;
+}
+
+@media only screen and (max-width: 700px), only screen and (max-device-width: 1200px) {
+    .grid-container#collaborate {
+        grid-template-columns: 5% auto;
+    }
 }
 
 .nav-category {

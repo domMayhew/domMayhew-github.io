@@ -134,7 +134,7 @@ let hamburgerMenuDisplayed = false;
 function toggleHamburgerMenu() {
     hamburgerMenuDisplayed = !hamburgerMenuDisplayed;
     const sideMenu = document.getElementById("menu-content-hamburger");
-    sideMenu.style.left = hamburgerMenuDisplayed ? "0" : "-100%";    
+    sideMenu.style.left = hamburgerMenuDisplayed ? "0" : "-60%";    
 }
 
 function setFooterTimeStamp() {
