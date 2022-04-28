@@ -28,7 +28,7 @@ const departments = [
                         imgFilePath: "res/images/learn/wiregauge.webp",
                         content:
                             "<p>The chart below can be printed life size for quick ring size reference. Follow instructions below to make sure it prints life size. This chart shows data for each ring from both wire gauge systems (SWG and AWG), decimal inches, fractions and metric. It also shows the aspect ratio (AR) of the ring. Here's the catch: any actual ring will be slightly larger due to springback. Harder materials like stainless steel will be more noticably larger than softer materials. Please always look at the actual ID, wire size and AR listed for each ring in the catalog - instructions for how to find this data are below. This is especially important if you are trying to make a weave that is very dependant on aspect ratio. Eg. A tight weave.</p>" +
-                            "<img src=\"res/images/learn/wiregauge.webp\">"
+                            "<div class=\"center-horizontal\"><img src=\"res/images/learn/wiregauge.webp\" style=\"width: 70%;\"></div>"
                     }, {
                         title: "Getting the right tools",
                         description: "You've learned the hard way that standard hardware store pliers aren't very good for chainmail, but there are lots of chainmail pliers to choose from...",
