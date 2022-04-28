@@ -150,7 +150,7 @@ header img.logo {
     border-right: 2px solid var(--primary-color);
 
     position: fixed;
-    left: -60%;
+    left: -80%;
     top: 7.5vh;
     width: 60%;
     height: 92.5vh;
@@ -394,12 +394,12 @@ header img.logo {
 }
 
 .card-carousel .arrow-prev {
-    left: 12.5%;
+    right: 87.5%;
     visibility: hidden;
 }
 
 .card-carousel .arrow-next {
-    right: 12.5%;
+    left: 87.5%;
 }
 
 .card-carousel [class|="arrow"]:hover {
@@ -487,15 +487,17 @@ form h1 {
 }
 
 form * {
-    margin: 1rem 1rem;
+    margin: 1rem;
 }
 
 form label {
     font-size: 1.25rem;
+    max-width: calc(100% - 4rem);
 }
 
 form select {
     width: 15rem;
+    max-width: calc(100% - 4rem);
     font-size: 1rem;
     padding: 0.5rem;
     height: calc(1rem + 1rem + 4px); /* Matches small text areas */
@@ -506,6 +508,7 @@ form textarea {
     border-radius: 2px;
     font-family: sans-serif;
     padding: 0.5rem;
+    max-width: calc(100% - 4rem);
 }
 
 form textarea.small {
