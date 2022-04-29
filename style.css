@@ -400,6 +400,7 @@ header img.logo {
 
 .card-carousel .arrow-next {
     left: 87.5%;
+    right: auto;
 }
 
 .card-carousel [class|="arrow"]:hover {
